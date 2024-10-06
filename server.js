@@ -16,7 +16,7 @@ app.get('/hello', (req, res) => {
 
 
 const handleGet = (req, res) => {
-    db.all(`SELECT * FROM expenses`, (err, rows) => {
+    db.all(`SELECT * FROM expenses ORDER BY date DESC`, (err, rows) => {
         if (err) {
             return res.status(500).json({ error: err.message });
         }
